@@ -1,0 +1,289 @@
+@import "colors.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NFM", "JetBrains Mono", monospace;
+    font-size: 13px;
+    min-height: 0;
+    transition: all 0.3s ease;
+}
+
+window#waybar {
+    background-color: rgba(30, 30, 46, 0.7);
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    margin: 5px 5px;
+    border: 1px solid @outline;
+    border-radius: 12px;
+    padding: 2px 6px;
+}
+
+.modules-left, .modules-center, .modules-right {
+    background-color: transparent;
+    border: none;
+    margin: 3px;
+    padding: 2px 6px;
+    color: @on_surface;
+}
+
+#clock {
+    background-color: @surface_container_high;
+    color: @on_surface;
+    border: 1px solid @outline_variant;
+    padding: 0 15px;
+    margin: 3px 0 3px 3px;
+    border-radius: 16px;
+    font-weight: bold;
+}
+
+#custom-fedora {
+    background-color: @primary_container;
+    color: @on_primary_container;
+    border: 1px solid @outline_variant;
+    padding: 0 15px 0 10px;
+    margin: 3px 3px 3px 3px;
+    border-radius: 16px;
+    font-size: 25px;
+}
+
+#custom-fedora:hover,
+#custom-power:hover {
+    background-color: @primary;
+    color: @on_primary;
+    border: 1px solid @outline;
+}
+
+/* Right side icon modules - common styles */
+#network,
+#custom-bt,
+#pulseaudio {
+    background-color: @surface_container_high;
+    color: @on_surface;
+    border: 1px solid @outline_variant;
+    padding: 0 15px;
+    margin: 3px 3px 3px 0;
+    border-radius: 16px;
+    font-size: 14px;
+    min-width: 28px;
+}
+
+#custom-power {
+    background-color: @primary_container;
+    color: @on_primary_container;
+    border: 1px solid @outline_variant;
+    padding: 0 15px;
+    margin: 3px 3px 3px 0;
+    border-radius: 16px;
+    font-size: 25px;
+    min-width: 28px;
+}
+
+
+
+
+#network.disconnected {
+    background-color: @error;
+    color: @on_error;
+    border: 1px solid @outline_variant;
+}
+
+
+/*---------Workspaces-----------------*/
+#workspaces {
+    background: @surface;
+    margin: 5px 5px;
+    padding: 8px 5px;
+    border-radius: 16px;
+    color: @on_surface;
+}
+#workspaces button {
+    font-weight: bold;
+    padding: 0px 5px;
+    margin: 0px 3px;
+    border-radius: 16px;
+    color: transparent;
+    background: @surface_container_highest;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+    font-weight: bold;
+    background-color: @primary;
+    color: @scrim;
+    border-radius: 16px;
+    min-width: 50px;
+    background-size: 400% 400%;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+    font-weight: bold;
+    background-color: @tertiary;
+    color: @scrim;
+    border-radius: 16px;
+    min-width: 50px;
+    background-size: 400% 400%;
+}
+
+#workspaces button.urgent {
+    font-weight: bold;
+    background-color: @error;
+    color: @scrim;
+    border-radius: 16px;
+    min-width: 50px;
+    background-size: 400% 400%;
+    transition: all 0.3s ease-in-out;
+}
+
+#window {
+    padding: 0 15px;
+    margin: 3px 0 3px 3px;
+    border-radius: 16px;
+    font-style: normal;
+    font-weight: bold;
+    background-color: @primary_container;
+    color: @on_primary_container;
+    border: 1px solid @outline_variant;
+}
+
+/* Pulseaudio special state */
+
+#pulseaudio.muted {
+    background-color: @error;
+    color: @on_error;
+    border: 1px solid @outline_variant;
+}
+
+/* System Updates Group */
+#group-system-updates {
+    background-color: transparent;
+    color: @on_surface;
+    margin: 3px 3px 3px 0;
+    padding: 0;
+    border-radius: 16px;
+    border: none;
+}
+
+#group-system-updates:hover {
+    background-color: transparent;
+    border: none;
+}
+
+
+
+
+/* System updates group elements */
+#custom-updates,
+#custom-snapper {
+    background-color: @surface_container_high;
+    color: @on_surface;
+    padding: 0 15px;
+    margin: 3px 0 3px 0;
+    font-size: 14px;
+    border: 1px solid @outline_variant;
+}
+
+#custom-updates {
+    border-radius: 0 16px 16px 0;
+    border-left: none;
+}
+
+#custom-snapper {
+    border-radius: 16px 0 0 16px;
+    border-right: none;
+}
+
+/* Hover states for right-side modules */
+#network:hover,
+#custom-bt:hover,
+#pulseaudio:hover {
+    background-color: @primary;
+    color: @on_primary;
+    border: 1px solid @outline;
+}
+
+#custom-updates:hover,
+#custom-snapper:hover {
+    background-color: @primary;
+    color: @on_primary;
+    border: 1px solid @outline;
+    border-left: none;
+    border-right: none;
+}
+
+/*-----------Playerctl-------------------*/
+
+/* Common styles for all buttons */
+#custom-playerctl.backward
+{
+    background: @on_primary;  /* flipped: was text color, now background */
+    color: @primary;          /* flipped: was background, now text color */
+    font-size: 22px;
+    padding: 0px 0px 0px 7px;        /* vertical and horizontal padding for centering */
+    margin: 3px 0px 3px 3px;
+    border: none;
+    border-radius: 0;         /* reset for merging */
+
+
+
+}
+
+#custom-playerctl.play
+ {
+    background: @on_primary;  /* flipped: was text color, now background */
+    color: @primary;          /* flipped: was background, now text color */
+    font-size: 22px;
+    padding: 0px 0px 0px 7px;        /* vertical and horizontal padding for centering */
+    margin: 3px 0px 3px 0px;
+    border: none;
+    border-radius: 0;         /* reset for merging */
+
+
+
+}
+
+#custom-playerctl.foward {
+    background: @on_primary;  /* flipped: was text color, now background */
+    color: @primary;          /* flipped: was background, now text color */
+    font-size: 22px;
+    padding: 0px 0px 0px 7px;        /* vertical and horizontal padding for centering */
+    margin: 3px 0px 3px 0px;
+    border: none;
+    border-radius: 0;         /* reset for merging */
+
+
+
+}
+
+/* Rounded corners only on the ends to keep capsule shape */
+#custom-playerctl.backward {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+#custom-playerctl.foward {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+/* Hover state with subtle background change and inverted text */
+#custom-playerctl.backward:hover,
+#custom-playerctl.play:hover,
+#custom-playerctl.foward:hover {
+    background: @on_primary;  /* slightly lighter */
+    color: @on_primary_container;
+}
+
+/* Label styling */
+#custom-playerlabel {
+    background: @on_primary;  /* flipped */
+    color: @primary;
+    padding: 0 15px;
+    margin: 3px 3px 3px 3px;
+    border-radius: 16px;
+    font-weight: bold;
+
+}
+
+

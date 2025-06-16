@@ -1,0 +1,151 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 35,
+    "spacing": 0,
+    "margin-top": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+    "modules-left": ["custom/fedora", "clock", "hyprland/window","custom/playerctl#backward",
+		"custom/playerctl#play",
+		"custom/playerctl#foward"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["custom/playerlabel", "group/system-updates", "pulseaudio", "custom/bt","network", "custom/power"],
+    
+	/*---------------Playerctl---------------*/
+	"custom/playerctl#backward": {
+		"format": "󰙣 ",
+		"on-click": "playerctl previous",
+		"on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
+		"on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
+		"tooltip": false
+	},
+	"custom/playerctl#foward": {
+		"format": "󰙡 ",
+		"on-click": "playerctl next",
+		"on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
+		"on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
+		"tooltip": false
+	},
+	"custom/playerctl#play": {
+		"exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+		"format": "{icon}",
+		"format-icons": {
+			"Paused": "<span> </span>",
+			"Playing": "<span>󰏥 </span>",
+			"Stopped": "<span> </span>"
+		},
+		"on-click": "playerctl play-pause",
+		"on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
+		"on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
+		"return-type": "json"
+	},
+	"custom/playerlabel": {
+		"exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(artist)}} - {{markup_escape(title)}}\", \"tooltip\": \"{{markup_escape(playerName)}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",		
+    "format": "<span>󰎈 {} 󰎈</span>",
+		"max-length": 40,
+		"on-click": "",
+		"return-type": "json"
+	},
+    "group/system-updates": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/snapper",
+            "custom/updates"
+        ]
+    },
+
+	"hyprland/workspaces": {
+		"format": "{id}",
+		"format-icons": {
+			"active": " ",
+			"default": " ",
+			"urgent": " "
+		},
+		"on-click": "activate",
+		"on-scroll-down": "hyprctl dispatch workspace e+1",
+		"on-scroll-up": "hyprctl dispatch workspace e-1"
+	},
+
+
+    "clock": {
+        "format": "{:%H:%M %b %d}",
+        "format-alt": "{:%Y-%m-%d %H:%M:%S}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+
+    "network": {
+		"format-disconnected": "󰖪 0% ",
+		"format-ethernet": "󰈀 100% ",
+		"format-linked": "{ifname} (No IP)",
+		"format-wifi": "  {signalStrength}%",
+		"tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
+		"on-click": "~/.config/waybar/scripts/wofi-wifi.sh"
+    },
+
+    "custom/bt": {
+        "format": "󰂯",
+        "tooltip": "Bluetooth",
+        "on-click": "~/.config/waybar/scripts/wofi-bt.sh"
+    },
+
+    "custom/fedora": {
+        "format": "󰣛",
+        "tooltip": "Fedora",
+        "on-click": "echo 'Fedora button clicked'"
+    },
+
+    "custom/power": {
+        "format": "󰍃",
+        "tooltip": "Power Menu",
+        "on-click": "~/.config/waybar/scripts/power-menu.sh"
+    },
+
+    "hyprland/window": {
+        "format": "{initialClass}",
+        "icon" : true,
+        "separate-outputs": true,
+        "max-length": 50,
+        "rewrite": {
+            "firefox": "Firefox",
+            "ghostty": "Ghostty",
+            "code-oss": "VS Code",
+            "thunar": "Thunar",
+            "com.mitchellh.ghostty": "Ghostty",
+            "org.mozilla.firefox": "Firefox",
+            "org.kde.dolphin": "Dolphin",
+            "org.gnome.Nautilus": "Files",
+            "org.wezfurlong.wezterm": "Wezterm",
+            "com.windsurf.cascade": "Windsurf",
+            "Vivaldi-stable":  "Vivaldi"
+        }
+    },
+
+    "custom/snapper": {
+        "format": "󰁯 {}",
+        "exec": "~/.config/waybar/scripts/count-snapshots.sh",
+        "interval": 3600,
+        "tooltip": "Snapper Snapshots",
+        "on-click": "~/.config/waybar/scripts/snapper-menu.sh"
+    },
+
+    "custom/updates": {
+        "format": "󰚰 {}",
+        "exec": "~/.config/waybar/scripts/check-updates.sh",
+        "interval": 3600,
+        "tooltip": true,
+        "on-click": "~/.config/waybar/scripts/update-system.sh"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "tooltip": true
+    }
+}
+
