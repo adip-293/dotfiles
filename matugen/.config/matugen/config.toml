@@ -1,0 +1,35 @@
+[config]
+#...
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/colors.conf'
+post_hook = 'hyprctl reload'
+
+# Waybar
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar-colors.conf'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill waybar'
+
+#GTK Themes
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-colors.conf'
+output_path = '~/.config/gtk-3.0/colors.css'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-colors.conf'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+#QT Themes
+[templates.qt5ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/colors/colors.conf'
+
+[templates.wlogout]
+input_path =  '~/.config/matugen/templates/waybar-colors.conf'
+output_path = '~/.config/wlogout/colors.css'
+
+[templates.wofi]
+input_path = '~/.config/matugen/templates/waybar-colors.conf'
+output_path = '~/.config/wofi/colors.css'
