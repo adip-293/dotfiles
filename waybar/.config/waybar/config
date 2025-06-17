@@ -118,7 +118,9 @@
             "org.gnome.Nautilus": "Files",
             "org.wezfurlong.wezterm": "Wezterm",
             "com.windsurf.cascade": "Windsurf",
-            "Vivaldi-stable":  "Vivaldi"
+            "Vivaldi-stable":  "Vivaldi",
+            "discord" : "Discord",
+            "com.usebottles.bottles" : "Bottles"
         }
     },
 
