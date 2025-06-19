@@ -7,10 +7,11 @@ return {
   lazy = false,
    opts = {
     picker = {enabled = true}, --Nice
-    bigfile = {enabled = true}, --Allegedly Nice
+    bigfile = {enabled =true},
+    dim = {enabled = true},
     explorer = {enabled = true}, --Nice
     indent = {enabled = true}, --Nice
-    scroll = {enabled = true}, --Nice
+    scroll = {enabled = false}, 
     gitbrowse = {enabled = true}, --Nice
     lazygit = {enabled = true}, --Nice
     notifier = {enabled = true}, --Alright
