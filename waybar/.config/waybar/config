@@ -120,7 +120,8 @@
             "com.windsurf.cascade": "Windsurf",
             "Vivaldi-stable":  "Vivaldi",
             "discord" : "Discord",
-            "com.usebottles.bottles" : "Bottles"
+            "com.usebottles.bottles" : "Bottles",
+            "blueman-manager" : "Bluetooth Manager"
         }
     },
 
