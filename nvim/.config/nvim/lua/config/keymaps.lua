@@ -23,6 +23,18 @@ vim.keymap.set("n", "<leader>fo",  function() Snacks.picker.grep_buffers() end, 
 vim.keymap.set("n", "<leader>fw",  function() Snacks.picker.grep_word() end, { desc = "Open Grep" })
 vim.keymap.set("n", "<leader>gb",  function() Snacks.gitbrowse() end, { desc = "Open Grep" })
 vim.keymap.set("n", "<leader>gt",  function() Snacks.lazygit() end, { desc = "Open Grep" })
+vim.keymap.set("n", "<leader>sc",  function() Snacks.input.enable() end, { desc = "Open Grep" })
+
+vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end, { desc = "Restore Session" })
+vim.keymap.set("n", "<leader>ql", function() require("persistence").load({ last = true }) end, { desc = "Restore Last Session" })
+vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end, { desc = "Don't Save Session" })
+
+vim.keymap.set("n", "<leader>fo", "<cmd>Oil<CR>", { desc = "Open Oil (Current Dir)" })
+
+vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash Jump" })
+vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
+vim.keymap.set("o", "r", function() require("flash").remote() end, { desc = "Remote Flash" })
+vim.keymap.set({ "c" }, "<c-s>", function() require("flash").toggle() end, { desc = "Toggle Flash Search" })
 
 
 

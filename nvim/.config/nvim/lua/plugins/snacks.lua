@@ -14,6 +14,7 @@ return {
     gitbrowse = {enabled = true}, --Nice
     lazygit = {enabled = true}, --Nice
     notifier = {enabled = true}, --Alright
+    quickfile = {enabled = true}, --Allegedly Nice
     dashboard = {--Nice
       enabled = true,
       preset = {
