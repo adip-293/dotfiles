@@ -56,7 +56,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+-- Format current buffer (uses null-ls or LSP formatting)
+vim.keymap.set("n", "<leader>f", function()
+  vim.lsp.buf.format({ async = true })
+end, { desc = "Format buffer", noremap = true, silent = true })
 
+-- Completion menu navigation (nvim-cmp)
+vim.keymap.set("i", "<C-b>", function() require("cmp").scroll_docs(-4) end, { desc = "Scroll completion docs up" })
+vim.keymap.set("i", "<C-f>", function() require("cmp").scroll_docs(4) end, { desc = "Scroll completion docs down" })
+vim.keymap.set("i", "<C-Space>", function() require("cmp").complete() end, { desc = "Trigger completion menu" })
+vim.keymap.set("i", "<C-e>", function() require("cmp").abort() end, { desc = "Abort completion" })
+vim.keymap.set("i", "<CR>", function()
+  local cmp = require("cmp")
+  if cmp.visible() and cmp.get_selected_entry() then
+    cmp.confirm({ select = true })
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", true)
+  end
+end, { desc = "Confirm completion or insert newline" })
 
 
 
