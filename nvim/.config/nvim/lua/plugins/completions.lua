@@ -3,6 +3,16 @@ return {
     "hrsh7th/cmp-nvim-lsp",
   },
   {
+    "Exafunction/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp"
+    },
+    config = function()
+      require("codeium").setup({})
+    end,
+  },
+  {
     "L3MON4D3/LuaSnip",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
@@ -34,7 +44,8 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "luasnip" }, -- For luasnip users.
+          { name = "luasnip" },
+          { name = "codeium" },
         }, {
           { name = "buffer" },
         }),
