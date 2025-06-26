@@ -75,8 +75,24 @@ vim.keymap.set("i", "<CR>", function()
   end
 end, { desc = "Confirm completion or insert newline" })
 
+-- DAP core
+map("n", "<F5>", function() require("dap").continue() end, { desc = "Start/Continue Debugging" })
+map("n", "<F10>", function() require("dap").step_over() end, { desc = "Step Over" })
+map("n", "<F11>", function() require("dap").step_into() end, { desc = "Step Into" })
+map("n", "<F12>", function() require("dap").step_out() end, { desc = "Step Out" })
+map("n", "<leader>db", function() require("dap").toggle_breakpoint() end, { desc = "Toggle Breakpoint" })
+map("n", "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, { desc = "Set Conditional Breakpoint" })
+map("n", "<leader>dr", function() require("dap").repl.open() end, { desc = "Open Debug REPL" })
+map("n", "<leader>dl", function() require("dap").run_last() end, { desc = "Run Last Debug Config" })
 
+-- DAP UI
+map("n", "<leader>du", function() require("dapui").toggle() end, { desc = "Toggle Debug UI" })
 
+-- Telescope DAP
+map("n", "<leader>dc", "<cmd>Telescope dap commands<CR>", { desc = "Telescope DAP Commands" })
+map("n", "<leader>dv", "<cmd>Telescope dap variables<CR>", { desc = "Telescope DAP Variables" })
+map("n", "<leader>df", "<cmd>Telescope dap frames<CR>", { desc = "Telescope DAP Frames" })
+map("n", "<leader>dbp", "<cmd>Telescope dap list_breakpoints<CR>", { desc = "Telescope DAP Breakpoints" })
 
 
 
