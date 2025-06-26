@@ -3,6 +3,7 @@
     "position": "top",
     "height": 35,
     "spacing": 0,
+    "output" : "DP-4",
     "margin-top": 5,
     "margin-left": 10,
     "margin-right": 10,
@@ -121,7 +122,8 @@
             "Vivaldi-stable":  "Vivaldi",
             "discord" : "Discord",
             "com.usebottles.bottles" : "Bottles",
-            "blueman-manager" : "Bluetooth Manager"
+            "blueman-manager" : "Bluetooth Manager",
+            "com.obsproject.Studio" : "OBS Studio",
         }
     },
 
